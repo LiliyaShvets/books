@@ -121,6 +121,7 @@ table th {
     font-size: 14px;
     line-height: 18px;
     vertical-align: top;
+    max-width: 280px;
 }
 table td {
     font-family:'Montserrat', sans-serif;
@@ -128,6 +129,7 @@ table td {
     font-size: 14px;
     line-height: 18px;
     vertical-align: top;
+    max-width: 280px;
 }
 
 

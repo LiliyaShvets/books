@@ -1,0 +1,133 @@
+/* You can add global styles to this file, and also import other style files */
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body { 
+    margin: 0; 
+    font-family:'Montserrat', sans-serif;
+    background-color: #f8f8f9;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #484a56;
+    text-align: left;
+}
+ol, ul {
+    list-style: none;
+    font-size: 100%;
+    margin-left: 0;
+    padding-left: 0;
+}
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+h1 {
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 56px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 50px;
+    margin-bottom: 32px;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 44px;
+}
+.primary-btn {
+    font-family:'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    background: #ff5722;
+    border: 1px solid #ff5722;
+    min-width: 112px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin: 0 10px 0 0;
+    color: #fff;
+    cursor: pointer;
+    transition: .4s ease;
+    margin-bottom: 5px;
+}
+.primary-btn.small-btn {
+    min-width: 80px;
+    padding: 5px 5px;
+    font-size: 10px;
+    line-height: 12px;
+    border-radius: 3px;
+}
+.primary-btn:hover {
+    background-color: #ff7d26;
+    color: #fff
+}
+
+.primary-btn:active {
+    box-shadow: 0 0 0 1px #f60;
+    background-color: transparent;
+    color: #f60
+}
+.primary-btn:disabled {
+    opacity: 0.5;
+}
+
+input {
+    font-family:'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #1d1f2e;
+    text-align: left;
+    background-color: transparent;
+    border: 2px solid #a5a5ab;
+    border-radius: 8px;
+    width: 100%;
+    padding: 9px 15px;
+    margin-bottom: 10px;
+}
+label {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    color: #a5a5ab; 
+}
+.form-container {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.validation-field {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    color: #fe2b55;
+    margin-bottom: 10px;
+}
+table th {
+    font-family:'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    vertical-align: top;
+}
+table td {
+    font-family:'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    vertical-align: top;
+}
+
+

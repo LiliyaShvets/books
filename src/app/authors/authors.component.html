@@ -1,0 +1,93 @@
+
+<section class="container library">
+  <div class="library-table">
+    <table>
+      <thead>
+        <tr>
+          <th (click)="toggleSortDirection('lastName')">
+            <span class="cell-flex">            
+              <span class="cell-title">Прізвище</span>
+              <span [class]="sortDirection === 'asc' && sortKey === 'lastName' ? 'material-icons up' : 'material-icons down'">arrow_drop_up</span>
+            </span>
+          </th>
+          <th (click)="toggleSortDirection('firsName')">
+            <span class="cell-flex">
+              <span class="cell-title">Ім'я</span>
+              <span [class]="sortDirection === 'asc' && sortKey === 'firsName' ? 'material-icons up' : 'material-icons down'">arrow_drop_up</span>
+            </span>    
+          </th>
+          <th (click)="toggleSortDirection('birthDate')">
+            <div class="cell-flex">
+              <div class="cell-title">Дата народження</div>
+              <span [class]="sortDirection === 'asc' && sortKey === 'birthDate' ? 'material-icons up' : 'material-icons down'">arrow_drop_up</span>
+            </div> 
+          </th>
+          <th (click)="toggleSortDirection('books.length')">
+            <span class="cell-flex">
+              <span class="cell-title">Книги</span>
+              <span [class]="sortDirection === 'asc' && sortKey === 'books.length' ? 'material-icons up' : 'material-icons down'">arrow_drop_up</span>
+            </span> 
+          </th>
+          <th>Дії</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let author of authors | orderBy:sortKey:sortDirection">
+          <td>{{ author.lastName }}</td>
+          <td>{{ author.firstName }}</td>
+          <td>{{ author.birthDate | date }}</td>
+          <td>
+            <span>{{ author.books.length }}</span>
+            <ul>
+              <li *ngFor="let book of author.books | filterByTitle:searchTitle">{{ book.title }} {{ book.pageCount }} pages, {{ book.genre }}</li>
+            </ul>
+          </td>
+          <td>
+            <button class="primary-btn small-btn"(click)="editAuthor(author)">Редагувати</button>
+            <button class="primary-btn small-btn" (click)="deleteAuthor(author)">Видалити</button>
+            <button class="primary-btn small-btn" (click)="openAuthorBooksDialog(author)">Додати книгу</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="library-forms">
+    <h2>Пошук книги</h2>
+    <div class="form-container">
+      <input type="text" [(ngModel)]="searchTitle" placeholder="Пошук книги по назві">
+    </div>
+    <h2>Додати автора</h2>
+
+    <form [formGroup]="authorForm" class="form-container">
+      <label>Прізвище:</label>
+      <input type="text" formControlName="lastName">
+      <div *ngIf="authorForm.get('lastName').invalid && (authorForm.get('lastName').dirty || submitted)" class="validation-field">
+        Обов'язкове поле
+      </div>
+      
+      <label>Ім'я:</label>
+      <input type="text" formControlName="firstName">
+      <div *ngIf="authorForm.get('firstName').invalid && (authorForm.get('firstName').dirty || submitted)" class="validation-field">
+        Обов'язкове поле
+      </div>
+  
+      <label>По-батькові:</label>
+      <input type="text" formControlName="middleName">
+      
+      <label>Дата народження:</label>
+      <input type="date" formControlName="birthDate">
+      <div *ngIf="authorForm.get('birthDate').invalid && (authorForm.get('birthDate').dirty || submitted)" class="validation-field">
+        Обов'язкове поле
+      </div>
+      
+      <button class="primary-btn" type="button" (click)="saveAuthor()">{{ isEditing ? 'Оновити' : 'Зберегти' }}</button>
+      <button class="primary-btn" type="button" (click)="cancelEdit()" *ngIf="isEditing">Відмінити</button>
+    </form>
+
+  </div>
+
+
+</section>
+
+
+
